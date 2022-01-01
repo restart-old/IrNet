@@ -25,4 +25,13 @@ func (c Conn) WritePacket(pk Packet) error {
 	_, err := conn.Write(buf.Bytes())
 	return err
 }
-func (c Conn) ReadPacket() (Packet, error)
+func (c Conn) ReadPacket() (Packet, error) {
+	conn := c.conn
+
+	var bytes []byte
+	_, err := conn.Read(bytes)
+	if err != nil {
+		return nil, err
+	}
+	return nil, nil
+}
