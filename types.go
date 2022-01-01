@@ -66,7 +66,7 @@ func (m Magic) compare(magic Magic) bool {
 func (m Magic) valid() bool { return m.compare(DefaultMagic) }
 func (m Magic) write(w io.Writer) error {
 	if !m.valid() {
-		return errors.New(invalidTypeWrite + "invalid magic: does not match the default magic")
+		return errors.New(invalidTypeWrite + "invalid Magic: does not match the default magic")
 	}
 	return binary.Write(w, binary.BigEndian, m)
 }

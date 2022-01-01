@@ -17,9 +17,6 @@ func (c Conn) WritePacket(pk Packet) error {
 	if err := id.write(&buf); err != nil {
 		return err
 	}
-	if err := DefaultMagic.write(&buf); err != nil {
-		return err
-	}
 	for _, t := range content {
 		if err := t.write(&buf); err != nil {
 			return err
