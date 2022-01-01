@@ -16,8 +16,8 @@ func (l Listener) Accept() (Conn, error) {
 	v.conn = conn
 	return v, nil
 }
-func (l Listener) Close() error
-func (l Listener) Addr() net.Addr
+func (l Listener) Close() error   { return l.listener.Close() }
+func (l Listener) Addr() net.Addr { return l.listener.Addr() }
 
 func Listen(address string) (Listener, error) {
 	listener, err := net.Listen("tcp", address)
