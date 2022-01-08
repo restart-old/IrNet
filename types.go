@@ -105,5 +105,5 @@ func (s String) write(w io.Writer) error {
 	if err != nil {
 		return err
 	}
-	return binary.Write(w, binary.BigEndian, s.str)
+	return binary.Write(w, binary.BigEndian, []byte(s.str))
 }
