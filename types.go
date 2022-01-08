@@ -96,6 +96,13 @@ type String struct {
 	str  string
 }
 
+func NewString(s string) String {
+	return String{
+		size: uint16(len([]byte(s))),
+		str:  s,
+	}
+}
+
 func (s String) valid() bool { return int(s.size) == len(s.str) }
 func (s String) write(w io.Writer) error {
 	if !s.valid() {
